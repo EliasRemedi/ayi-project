@@ -4,6 +4,8 @@ pipeline {
       yaml '''
         apiVersion: v1
         kind: Pod
+        metadata:
+          name: python
         spec:
           containers:
           - name: python
@@ -20,11 +22,11 @@ pipeline {
   stages {
     stage('Checkout Source') {
       steps {
-        git 'https://github.com/shazforiot/nodeapp_test.git'
+        git 'https://github.com/EliasRemedi/test-jenkins.git'
       }
     }
 
-    stage('Build-Docker-Image') {
+    stage('run app') {
       steps {
         container('python') {
           sh 'pip install -r requirements.txt'
