@@ -12,10 +12,10 @@ pipeline {
     }
   }
   environment {
-    DB_HOST: credentials
-    DB_USER: credentials
-    DB_PASSWORD: credentials
-    DB_PORT: credentials
+    DB_HOST: credentials('db-host')
+    DB_USER: credentials('db-user')
+    DB_PASSWORD: credentials('db-pass')
+    DB_PORT: credentials('db-port')
   }
   stages {
     stage('Checkout Source') {
