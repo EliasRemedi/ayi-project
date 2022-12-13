@@ -10,6 +10,9 @@ pipeline {
           containers:
           - name: python
             image: python:3.8
+            command: 
+            - cat
+            tty: true
         '''
     }
   }
