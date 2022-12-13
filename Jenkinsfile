@@ -33,7 +33,7 @@ pipeline {
       steps {
         container('python') {
           sh 'pip install -r requirements.txt'
-          sh 'sudo apt install gettext'
+          sh 'apt install gettext'
           sh 'envsubst < config.ini-template > config.ini'
           sh 'cat config.ini'
           sh 'python3 __init__.py'
