@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+    name: ayi-cronjob
+spec:
+    schedule: "* * 31 2 *"
+    jobTemplate:
+        spec:
+            template:
+                spec:
+                    containers:
+                    -   name: ayi-job
+                        image: eliasremedi/ayi-githubactions:latest
+                    imagePullSecrets:
+                    - name: regcred
+                    restartPolicy: OnFailure
